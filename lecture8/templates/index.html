@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静夜思</title>
+    <style>
+        /* 页面基础样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: "宋体", "Microsoft YaHei", serif;
+            color: #f0f0f0;
+        }
+        /* 古诗容器样式 */
+        .poem-container {
+            padding: 60px 80px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* 标题样式 */
+        .poem-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #f5d061;
+            letter-spacing: 8px;
+        }
+        /* 作者样式 */
+        .poem-author {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #b3b3b3;
+            letter-spacing: 4px;
+        }
+        /* 诗句样式 */
+        .poem-line {
+            font-size: 28px;
+            text-align: center;
+            margin: 20px 0;
+            letter-spacing: 12px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <button id="togglePoem" style="margin-bottom: 30px; padding: 12px 24px; background-color: rgba(245, 208, 97, 0.9); border: none; border-radius: 8px; font-size: 16px; font-family: inherit; cursor: pointer; transition: background-color 0.3s ease;">切换到《鹅鹅鹅》</button>
+    <div class="poem-container">
+        <h1 class="poem-title">静夜思</h1>
+        <p class="poem-author">唐·李白</p>
+        <p class="poem-line">床前明月光</p>
+        <p class="poem-line">疑是地上霜</p>
+        <p class="poem-line">举头望明月</p>
+        <p class="poem-line">低头思故乡</p>
+    </div>
+    <script>
+        const poems = [
+            {
+                title: "静夜思",
+                author: "唐·李白",
+                lines: [
+                    "床前明月光",
+                    "疑是地上霜",
+                    "举头望明月",
+                    "低头思故乡"
+                ]
+            },
+            {
+                title: "咏鹅",
+                author: "唐·骆宾王",
+                lines: [
+                    "鹅鹅鹅",
+                    "曲项向天歌",
+                    "白毛浮绿水",
+                    "红掌拨清波"
+                ]
+            }
+        ];
+        let currentPoemIndex = 0;
+
+        const toggleBtn = document.getElementById('togglePoem');
+        const poemTitle = document.querySelector('.poem-title');
+        const poemAuthor = document.querySelector('.poem-author');
+        const poemLines = document.querySelectorAll('.poem-line');
+
+        toggleBtn.addEventListener('click', function() {
+            currentPoemIndex = (currentPoemIndex + 1) % poems.length;
+            const currentPoem = poems[currentPoemIndex];
+            
+            poemTitle.textContent = currentPoem.title;
+            poemAuthor.textContent = currentPoem.author;
+            poemLines.forEach((line, index) => {
+                line.textContent = currentPoem.lines[index];
+            });
+
+            toggleBtn.textContent = currentPoemIndex === 0 ? "切换到《鹅鹅鹅》" : "切换到《静夜思》";
+        });
+    </script>
+</body>
+</html>
