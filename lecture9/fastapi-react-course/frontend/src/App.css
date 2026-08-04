@@ -1,0 +1,165 @@
+:root {
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #172033;
+  background: #eef2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 64px 20px;
+  background:
+    radial-gradient(circle at top left, rgba(129, 140, 248, .35), transparent 35%),
+    linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+.task-card {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  padding: 38px;
+  border: 1px solid rgba(148, 163, 184, .25);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 24px 70px rgba(30, 41, 59, .14);
+}
+
+.page-header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(32px, 7vw, 48px);
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-size: 17px;
+}
+
+.task-form {
+  display: flex;
+  gap: 12px;
+}
+
+.task-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  outline: none;
+}
+
+.task-form input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, .14);
+}
+
+.task-form button {
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  background: #4f46e5;
+  font-weight: 700;
+}
+
+.task-form button:hover {
+  background: #4338ca;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.task-number {
+  color: #6366f1;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.task-title {
+  flex: 1;
+}
+
+.delete-button {
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 9px;
+  color: #be123c;
+  background: #ffe4e6;
+}
+
+.delete-button:hover {
+  color: white;
+  background: #e11d48;
+}
+
+.error-message {
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.status-message {
+  margin-top: 28px;
+  color: #64748b;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 24px 12px;
+  }
+
+  .task-card {
+    padding: 24px 18px;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+}
